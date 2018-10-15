@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2018_10_15_182938) do
     t.string "description", null: false
     t.integer "capacity", null: false
     t.string "url", null: false
-    t.boolean "age_restriction", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
