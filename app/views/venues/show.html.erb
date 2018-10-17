@@ -1,5 +1,7 @@
 
+
 <h1><%= @venue.name %></h1>
-<li><%= @venue.description %></li>
-<li><%= @venue.address %></li>
-<li><%= @venue.capacity %></li>
+<p><img src="<%= @venue.image %>" width="500"></p>
+<p><strong>Description:</strong> <br/> <%= @venue.description %></p>
+<p><strong>Address:</strong> <br/> <%= @venue.address %></p>
+<p><strong>Capacity:</strong> <br/> <%= @venue.capacity %></p>
