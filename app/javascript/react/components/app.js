@@ -1,8 +1,12 @@
 import React from 'react'
+import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import VenueContainer from '../containers/VenueContainer'
 
 const App = (props) => {
   return (
-    <h1>Make It So React</h1>
+    <Router history={browserHistory}>
+      <Route path='/venues/:id' component={VenueContainer} />
+    </Router>
   )
 }
 
