@@ -1,3 +1,10 @@
+
+<h1> VenViews: The Website For Venue Reviews </h1>
+
+<div class="row_column">
 <% @venues.each do |venue| %>
- <li><%= venue.name %></li>
+ <h3><%= link_to venue.name, venue %></h3>
+ <p><img src="<%= venue.image %>" width="500"></p>
+ <p><%= venue.description %></p>
 <% end %>
+</div>
