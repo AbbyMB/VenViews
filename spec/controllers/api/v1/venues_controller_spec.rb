@@ -25,7 +25,6 @@ RSpec.describe Api::V1::VenuesController, type: :controller do
       expect(returned_json["venues"][1]["description"]).to eq "The HALF shell"
       expect(returned_json["venues"][1]["capacity"]).to eq 500
       expect(returned_json["venues"][1]["url"]).to eq "http://www.hatchshell.com/"
-
     end
   end
 end

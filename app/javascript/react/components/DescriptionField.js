@@ -7,7 +7,6 @@ const DescriptionField = props => {
       <input type="text" />
     </label>
   )
-
 }
 
 export default DescriptionField;
