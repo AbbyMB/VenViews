@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import FormContainer from './FormContainer'
 import Venue from '../components/venue';
 
 class VenueContainer extends Component {
@@ -45,6 +45,7 @@ class VenueContainer extends Component {
         capacity={this.state.venue.capacity}
         url={this.state.venue.url}
         />
+      <FormContainer />
       </div>
     );
   }
