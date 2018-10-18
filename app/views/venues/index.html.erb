@@ -4,7 +4,6 @@
 <div class="row_column">
 <% @venues.each do |venue| %>
  <h3><%= link_to venue.name, venue %></h3>
- <p><img src="<%= venue.image %>" width="500"></p>
  <p><%= venue.description %></p>
 <% end %>
 </div>

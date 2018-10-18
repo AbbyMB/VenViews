@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2018_10_17_192109) do
     t.string "description", null: false
     t.integer "capacity", null: false
     t.string "url", null: false
-    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
