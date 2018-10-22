@@ -4,7 +4,11 @@ const DescriptionField = props => {
   return(
     <label>
       Description:
-      <input type="text" />
+      <input
+        type="text"
+        onChange={props.handleDescriptionChange}
+        value={props.content}
+         />
     </label>
   )
 
