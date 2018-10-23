@@ -7,7 +7,7 @@ class VenuesController < ApplicationController
 
   def show
   end
-
+  
   def create
   end
 

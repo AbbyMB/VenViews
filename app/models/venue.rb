@@ -6,5 +6,5 @@ class Venue < ApplicationRecord
   validates :url, presence: true
   validates :image, presence: true
 
-  has_many :reviews 
+  has_many :reviews
 end
