@@ -5,4 +5,6 @@ class Venue < ApplicationRecord
   validates :capacity, numericality: { only_integer: true }
   validates :url, presence: true
   validates :image, presence: true
+
+  has_many :reviews
 end

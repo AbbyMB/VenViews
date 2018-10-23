@@ -7,6 +7,9 @@ class VenuesController < ApplicationController
 
   def show
   end
+  
+  def create
+  end
 
   protected
   def authorize_user
@@ -14,4 +17,6 @@ class VenuesController < ApplicationController
       raise ActionController::RoutingError.new("Not Found")
     end
   end
+
+
 end
