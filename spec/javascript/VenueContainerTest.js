@@ -1,5 +1,6 @@
 import fetchMock from 'fetch-mock'
 import VenueContainer from '../../app/javascript/react/containers/VenueContainer'
+import Venue from '../../app/javascript/react/components/Venue'
 
 describe('VenueContainer', () => {
   let wrapper;
