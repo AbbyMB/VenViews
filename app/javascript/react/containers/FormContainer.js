@@ -31,15 +31,21 @@ class FormContainer extends Component {
   handleDescriptionChange(event){
       this.setState({ description: event.target.value })
   }
+
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = {
-      rating: this.state.rating,
-      description: this.state.description,
-      vote_count: 0
+    if(this.state.user !== null){
+      let formPayload = {
+        rating: this.state.rating,
+        description: this.state.description,
+        vote_count: 0
+      }
+      this.props.addNewReview(formPayload)
+      this.handleClearForm()
+    } else {
+      alert('Must be logged in for this review to be submitted');
+      this.handleClearForm()
     }
-    this.props.addNewReview(formPayload)
-    this.handleClearForm()
   }
 
   render() {

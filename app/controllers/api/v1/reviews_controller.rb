@@ -34,7 +34,7 @@ class Api::V1::ReviewsController < ApplicationController
     @review.destroy
     render json: { message: "Review deleted successfully" }
   end
-  
+
   private
 
   def review_params

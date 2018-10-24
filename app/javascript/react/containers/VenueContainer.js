@@ -21,6 +21,7 @@ class VenueContainer extends Component {
   }
 
   componentDidMount() {
+    debugger
     let venueId = this.props.params.id
     fetch(`/api/v1/venues/${venueId}`)
       .then(response => {
