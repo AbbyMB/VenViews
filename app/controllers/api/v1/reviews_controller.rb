@@ -26,9 +26,17 @@ class Api::V1::ReviewsController < ApplicationController
     else
       render json: {error: @review.errors.full_messages}
     end
+
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    render json: { message: "Review deleted successfully" }
+  end
+  
   private
+
   def review_params
     params.require(:review).permit(:venue_id, :user_id, :vote_count, :rating, :description)
   end
