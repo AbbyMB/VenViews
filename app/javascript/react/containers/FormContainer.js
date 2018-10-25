@@ -34,7 +34,7 @@ class FormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    if(this.state.user !== null){
+    if(this.props.user !== null){
       let formPayload = {
         rating: this.state.rating,
         description: this.state.description,
@@ -61,7 +61,9 @@ class FormContainer extends Component {
             handleRatingChange={this.handleRatingChange}
             content={this.state.rating}
           />
-          <input type="submit" value="Submit" />
+          <button>
+            Submit
+          </button>
         </form>
       </div>
     )

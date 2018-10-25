@@ -21,7 +21,6 @@ class VenueContainer extends Component {
   }
 
   componentDidMount() {
-    debugger
     let venueId = this.props.params.id
     fetch(`/api/v1/venues/${venueId}`)
       .then(response => {
@@ -37,9 +36,8 @@ class VenueContainer extends Component {
       .then(body => {
         this.setState({ name: body.venue.name, address: body.venue.address, description: body.venue.description, capacity: body.venue.capacity, url: body.venue.url, image: body.venue.image, reviews: body.venue.reviews });
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
-
-      fetch(`/api/v1/current_user`)
+      .then(
+        fetch(`/api/v1/current_user`)
         .then(response => {
           if (response.ok) {
             return response;
@@ -53,7 +51,8 @@ class VenueContainer extends Component {
         .then(body => {
           this.setState({ user: body });
         })
-        .catch(error => console.error(`Error in fetch: ${error.message}`));
+      )
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   addNewReview(formPayload){
@@ -121,7 +120,6 @@ class VenueContainer extends Component {
         let deleteHandler = () => {
           this.handleDelete(review.id)
         }
-
         return(
           <Review
             key={review.id}
@@ -137,20 +135,27 @@ class VenueContainer extends Component {
 
     return (
       <div>
-      <Venue
-        name={this.state.name}
-        address={this.state.address}
-        description={this.state.description}
-        capacity={this.state.capacity}
-        url={this.state.url}
-        image={this.state.image}
-        />
-      <h4 className="row_column">Reviews</h4>
-        {reviews}
-      <FormContainer
-        addNewReview={this.addNewReview}
-        id = {this.props.params.id}
-      />
+        <div className="venue-show">
+          <div className="content">
+            <Venue
+              name={this.state.name}
+              address={this.state.address}
+              description={this.state.description}
+              capacity={this.state.capacity}
+              url={this.state.url}
+              image={this.state.image}
+            />
+          </div>
+          <h4 className="row_column">Reviews</h4>
+            {reviews}
+          <div className="form">
+            <FormContainer
+              addNewReview={this.addNewReview}
+              id = {this.props.params.id}
+              user={this.state.user}
+            />
+          </div>
+        </div>
       </div>
     );
   }

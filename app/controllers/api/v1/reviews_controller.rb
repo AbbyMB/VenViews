@@ -1,5 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
   protect_from_forgery unless: -> {request.format.json?}
+  before_action :authorize_user, except: [:index, :show]
 
   def index
     render json: Review.all
@@ -9,18 +10,11 @@ class Api::V1::ReviewsController < ApplicationController
     render json: Review.find(params[:id])
   end
 
-  def new
-    @review = Review.new
-
-  end
-
   def create
-    # binding.pry
     @review = Review.new(review_params)
     @venue = Venue.find(params[:venue_id])
     @review.venue = @venue
     @review.user = current_user
-    # @user =  current_user
     if @review.save
       render json: {review: @review}
     else
@@ -39,6 +33,12 @@ class Api::V1::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:venue_id, :user_id, :vote_count, :rating, :description)
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user
+      render json: {message: "you are not authorized!"}
+    end
   end
 
 end

@@ -10,10 +10,10 @@ const Review = (props) => {
   }
 
   return (
-    <div className="venue-show">
-        <h6>rating: {props.rating}</h6>
-        <h6>{props.description}</h6>
-        {deleteButton}
+    <div className="review">
+      <h6>Rating: {props.rating}</h6>
+      <h6>{props.description}</h6>
+      {deleteButton}
     </div>
   )
 }
