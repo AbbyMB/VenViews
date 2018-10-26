@@ -1,5 +1,3 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :description
-
-  belongs_to :venue
+  attributes :id, :rating, :description, :user_id
 end

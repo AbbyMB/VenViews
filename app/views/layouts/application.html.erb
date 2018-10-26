@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>VenViews</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag "vendor/modernizr" %>
+  <head>
+    <title>VenViews</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
+  <div class="fixed">
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">VenViews | The Website for Venue Reviews</a></h1>
+        </li>
+      </ul>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">VenViews</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-          <% if user_signed_in? %>
-            <li>
-              <div class="user_email">
-                <%= current_user.email %>
-              </div>
-            </li>
-            <li> <img src="<%= current_user.profile_photo %>" height="67" width="67"></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% if current_user.admin? %>
-              <li><%= link_to "Admin Section", admin_path %></li>
+      <section class="top-bar-section">
+        <ul class="right">
+            <% if user_signed_in? %>
+              <li>
+                <div class="user_email">
+                  <%= current_user.email %>
+                </div>
+              </li>
+              <li> <img src="<%= current_user.profile_photo %>" height="67" width="67"></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Admin Section", admin_path %></li>
+              <% end %>
+            <% else %>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
             <% end %>
-          <% else %>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </section>
-    </nav>
-
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
+          </ul>
+        </section>
+      </nav>
     </div>
-  <%- end -%>
 
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-
-  <%- if Rails.env.development? || Rails.env.test? -%>
-    <%= javascript_tag do %>
-      window.railsEnv = '<%= Rails.env %>'
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
     <%- end -%>
-  <%- end -%>
-  <%= javascript_pack_tag 'application' %>
 
-  <%= yield :extra_footer %>
-</body>
+
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%- if Rails.env.development? || Rails.env.test? -%>
+      <%= javascript_tag do %>
+        window.railsEnv = '<%= Rails.env %>'
+      <%- end -%>
+    <%- end -%>
+    <%= javascript_pack_tag 'application' %>
+
+    <%= yield :extra_footer %>
+  </body>
 </html>

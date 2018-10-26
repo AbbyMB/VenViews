@@ -7,11 +7,6 @@ class Api::V1::VenuesController < ApplicationController
 
   def show
     render json: Venue.find(params[:id])
-    @venue = Venue.find(params[:id])
-    @reviews = @venue.reviews 
-  end
-
-  def create
   end
 
 end

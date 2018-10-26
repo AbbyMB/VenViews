@@ -1,9 +1,11 @@
-<h1> VenViews: The Website For Venue Reviews </h1>
-
 <div class="row_column">
   <% @venues.each do |venue| %>
-  <h3><%= link_to venue.name, venue %></h3>
-  <p><img src="<%= venue.image %>" width="500"></p>
-  <p><%= venue.description %></p>
+  <a href="/venues/<%= venue.id %>">
+    <button class="venue">
+      <h3><%= link_to venue.name, venue %></h3>
+      <img src="<%= venue.image %>">
+      <p><%= venue.description %></p>
+    </button>
+  </a>
   <% end %>
 </div>

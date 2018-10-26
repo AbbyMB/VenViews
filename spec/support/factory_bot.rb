@@ -7,4 +7,13 @@ FactoryBot.define do
     password_confirmation { 'password' }
   end
 
+  factory :venue do
+    sequence(:name) {|n| "VenueName" }
+    sequence(:address) {|n| "VenueAddress" }
+    sequence(:capacity) {|n| 1 }
+    sequence(:description) {|n| "VenueDescription" }
+    sequence(:url) {|n| "http://www.facebook.com" }
+    sequence(:image) {|n| "Myimage.jpg" }
+  end
+
 end

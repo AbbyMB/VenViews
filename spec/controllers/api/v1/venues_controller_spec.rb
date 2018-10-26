@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Api::V1::VenuesController, type: :controller do
   let!(:first_venue) { Venue.create(name: 'House of Blues', address: '15 Lansdown Street', description: 'house o blues yo', capacity: 200, url: 'http://www.houseofblues.com/', image: 'http://www.image.com') }
   let!(:second_venue) { Venue.create(name: 'Hatch Shell', address: '47 David G Mugar Way', description: 'The HALF shell', capacity: 500, url: 'http://www.hatchshell.com/', image: 'http://www.wayfair.com') }
-  
+
   describe "GET#index" do
     it "should return a list of all the venues" do
 
