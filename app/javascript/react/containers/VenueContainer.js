@@ -49,7 +49,9 @@ class VenueContainer extends Component {
         })
         .then(response => response.json())
         .then(body => {
-          this.setState({ user: body });
+          if (body !== null) {
+            this.setState({ user: body });
+          }
         })
       )
       .catch(error => console.error(`Error in fetch: ${error.message}`));

@@ -171,11 +171,17 @@
    margin-bottom: 10px;
  }
 
+ .successful {
+   border: 2px solid #FFFFFF;
+   background-color: #5D7AE8;
+   width: 160px;
+   opacity: 0.96;
+ }
+
  .review button {
    color: #000000;
    background-color: #FFFFFF;
-   margin-left: 44%;
-   margin-right: 44%;
+
  }
 
  .review h6 {
