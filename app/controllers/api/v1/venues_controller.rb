@@ -9,4 +9,7 @@ class Api::V1::VenuesController < ApplicationController
     render json: Venue.find(params[:id])
   end
 
+  def new
+  end 
+
 end

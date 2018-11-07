@@ -87,6 +87,7 @@ class VenueContainer extends Component {
   }
 
   handleDelete(reviewId) {
+    event.preventDefault()
     let venueId = this.props.params.id
     fetch(`/api/v1/venues/${venueId}/reviews/${reviewId}`, {
       method: 'DELETE',
